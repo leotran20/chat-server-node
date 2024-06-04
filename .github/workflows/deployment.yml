@@ -38,6 +38,6 @@ jobs:
       run: |
         ssh -i ~/.ssh/id_rsa root@188.166.182.237
         docker pull thienlinh1420/chat_app_node:latest
-        # docker stop chat_app_node
-        # docker rm chat_app_node
+        docker stop chat_app_node
+        docker rm chat_app_node
         docker run --rm --name chat_app_node -d -p 3000:3000 -e SECRET_KEY=${{ secrets.SECRET_KEY }} -e DATABASE_URL=${{ secrets.DATABASE_URL }} thienlinh1420/chat_app_node
